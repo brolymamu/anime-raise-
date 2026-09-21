@@ -1,65 +1,272 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Anime Details - AniVerse</title>
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Admin Dashboard - AniVerse</title>
 
 <link rel="stylesheet" href="css/style.css">
+
 </head>
 
 <body>
 
-<header class="header">
-
-    <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+<header class="admin-header">
 
     <a class="logo" href="index.html">
         Ani<span>Verse</span>
     </a>
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="watchlist.html">Watchlist</a>
-    </nav>
+    <span>ADMIN DASHBOARD</span>
 
-    <div class="header-search">
+        <a href="index.html">
+        ← Website
+    </a>
 
-        <input
-            id="searchInput"
-            placeholder="Search anime..."
-            onkeydown="searchAnime(event)"
-        >
-
-        <button onclick="searchAnime()">🔍</button>
-
-    </div>
+    <button class="admin-logout" onclick="adminLogout()">
+        Logout
+    </button>
 
 </header>
 
 
-<aside class="sidebar" id="sidebar">
+<section class="admin-login" id="adminLogin">
 
-    <a href="index.html">🏠 Home</a>
-    <a href="watchlist.html">❤️ Watchlist</a>
-    <a href="admin.html">🔐 Admin</a>
+    <div class="admin-login-box">
+
+        <div class="logo">
+            Ani<span>Verse</span>
+        </div>
+
+        <h1>Admin Login</h1>
+        <p>Enter the admin password to continue.</p>
+
+        <form onsubmit="adminLogin(event)">
+            <input
+                id="adminPassword"
+                type="password"
+                placeholder="Admin password"
+                autocomplete="current-password"
+                required
+            >
+            <button class="btn primary full" type="submit">
+                Unlock Dashboard
+            </button>
+        </form>
+
+        <p class="auth-message" id="adminLoginMessage"></p>
+
+    </div>
+
+</section>
+
+
+<div class="admin-layout" id="adminLayout">
+
+<aside class="admin-sidebar">
+
+    <button onclick="showAdmin('dashboard')">
+        📊 Dashboard
+    </button>
+
+    <button onclick="showAdmin('anime')">
+        🎬 Manage Anime
+    </button>
+
+    <button onclick="showAdmin('addAnime')">
+        ➕ Add Anime
+    </button>
+
+    <button onclick="showAdmin('episodes')">
+        📺 Episodes
+    </button>
 
 </aside>
 
 
-<main>
+<main class="admin-main">
 
-<section class="anime-detail" id="animeDetail"></section>
+
+<!-- DASHBOARD -->
+
+<section
+    id="dashboard"
+    class="admin-section active"
+>
+
+    <h1>Dashboard</h1>
+
+    <div class="stats">
+
+        <div class="stat">
+            <span>Anime</span>
+            <strong id="animeCount">0</strong>
+        </div>
+
+        <div class="stat">
+            <span>Episodes</span>
+            <strong id="episodeCount">0</strong>
+        </div>
+
+        <div class="stat">
+            <span>Users</span>
+            <strong>1,284</strong>
+        </div>
+
+        <div class="stat">
+            <span>Views</span>
+            <strong>24.8K</strong>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- MANAGE ANIME -->
+
+<section
+    id="anime"
+    class="admin-section"
+>
+
+    <h1>Manage Anime</h1>
+
+    <div id="adminAnimeList"></div>
+
+</section>
+
+
+<!-- ADD ANIME -->
+
+<section
+    id="addAnime"
+    class="admin-section"
+>
+
+    <h1>Add New Anime</h1>
+
+    <form
+        class="admin-form"
+        onsubmit="addAnime(event)"
+    >
+
+        <input
+            id="newTitle"
+            placeholder="Anime title"
+            required
+        >
+
+        <input
+            id="newImage"
+            placeholder="Poster image URL"
+            required
+        >
+
+        <input
+            id="newYear"
+            placeholder="Year"
+            value="2026"
+        >
+
+        <input
+            id="newEpisodes"
+            type="number"
+            placeholder="Episodes"
+            value="12"
+        >
+
+        <input
+            id="newRating"
+            placeholder="Rating"
+            value="8.5"
+        >
+
+        <input
+            id="newGenres"
+            placeholder="Genres: Action, Fantasy"
+        >
+
+        <textarea
+            id="newDescription"
+            placeholder="Description"
+        ></textarea>
+
+        <button class="btn primary">
+            Add Anime
+        </button>
+
+    </form>
+
+</section>
+
+
+<!-- EPISODES -->
+
+<section
+    id="episodes"
+    class="admin-section"
+>
+
+    <h1>Add Episode</h1>
+
+    <form
+        class="admin-form"
+        onsubmit="addEpisode(event)"
+    >
+
+        <select id="episodeAnime"></select>
+
+        <input
+            id="episodeNumber"
+            type="number"
+            placeholder="Episode number"
+            required
+        >
+
+        <input
+            id="episodeTitle"
+            placeholder="Episode title"
+        >
+
+                <label for="episodeVideo">Upload video</label>
+
+        <input
+            id="episodeVideo"
+            type="file"
+            accept="video/*"
+            required
+        >
+
+        <button class="btn primary">
+            Add Episode
+        </button>
+
+    </form>
+
+    <div id="episodeAdminList"></div>
+
+</section>
+
 
 </main>
+
+</div>
+
 
 <script src="js/app.js"></script>
 
 <script>
-loadAnimeDetails();
+loadAdmin();
 </script>
 
 </body>
 </html>
-```
+
