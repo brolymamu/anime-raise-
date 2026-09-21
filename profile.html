@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Profile - AniVerse</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="header">
+    <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+    <a class="logo" href="index.html">Ani<span>Verse</span></a>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="watchlist.html">Favorites</a>
+    </nav>
+    <a class="login-btn" href="index.html">Home</a>
+</header>
+
+<main>
+<section class="profile-page section" id="profilePage">
+    <div class="profile-box">
+        <h1>My Profile</h1>
+        <p class="profile-email" id="profileEmail"></p>
+
+        <img class="profile-avatar" id="profileAvatar" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Crect width='160' height='160' fill='%2325252c'/%3E%3Ctext x='80' y='92' text-anchor='middle' fill='%23aaa' font-size='18'%3EAvatar%3C/text%3E%3C/svg%3E" alt="Profile avatar">
+
+        <form class="profile-form" onsubmit="saveProfileForm(event)">
+            <label for="profileName">Display name</label>
+            <input id="profileName" placeholder="Your name">
+
+            <label for="profileImage">Profile image</label>
+            <input id="profileImage" type="file" accept="image/*" onchange="previewProfileImage(event)">
+
+            <button class="btn primary" type="submit">Save Profile</button>
+            <p class="auth-message" id="profileMessage"></p>
+        </form>
+
+        <div class="profile-links">
+            <a class="btn secondary" href="watchlist.html">❤️ My Favorites</a>
+            <button class="btn secondary" onclick="logoutUser()">Logout</button>
+        </div>
+    </div>
+</section>
+</main>
+<script src="js/app.js"></script>
+<script>loadProfile();</script>
+</body>
+</html>
