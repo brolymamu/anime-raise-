@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AniVerse - Home</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header class="header">
+
+    <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+
+    <a class="logo" href="index.html">
+        Ani<span>Verse</span>
+    </a>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="#trending">Trending</a>
+        <a href="#latest">Latest</a>
+        <a href="watchlist.html">Watchlist</a>
+    </nav>
+
+    <div class="header-search">
+        <input
+            id="searchInput"
+            placeholder="Search anime..."
+            onkeydown="searchAnime(event)"
+        >
+        <button onclick="searchAnime()">🔍</button>
+    </div>
+
+    <a class="login-btn" href="login.html" id="accountLink">Login</a>
+
+</header>
+
+<aside class="sidebar" id="sidebar">
+
+    <h4>MENU</h4>
+
+    <a href="index.html">🏠 Home</a>
+    <a href="#trending">🔥 Trending</a>
+    <a href="#latest">▶ Latest Episodes</a>
+    <a href="watchlist.html">❤️ Watchlist</a>
+
+    <h4>GENRES</h4>
+
+    <a href="index.html?genre=Action">⚔ Action</a>
+    <a href="index.html?genre=Adventure">🌍 Adventure</a>
+    <a href="index.html?genre=Romance">❤️ Romance</a>
+    <a href="index.html?genre=Comedy">😂 Comedy</a>
+    <a href="index.html?genre=Fantasy">✨ Fantasy</a>
+    <a href="index.html?genre=Sports">🏀 Sports</a>
+
+    <h4>ADMIN</h4>
+
+    <a href="admin.html">🔐 Admin Panel</a>
+
+</aside>
+
+<main>
+
+<section class="section" id="continueSection" style="display:none">
+    <div class="section-title">
+        <h2>▶ Continue Watching</h2>
+    </div>
+    <div class="anime-grid" id="continueGrid"></div>
+</section>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <small>#1 MOST WATCHED</small>
+
+        <h1>Dragon Ball</h1>
+
+        <div class="meta">
+            <span>HD</span>
+            <span>CC 24</span>
+            <span>2026</span>
+            <span>⭐ 9.2</span>
+        </div>
+
+        <p>
+                        Follow Goku and his friends as they train, battle powerful enemies
+            and protect Earth through incredible adventures.
+        </p>
+
+        <div class="hero-actions">
+
+            <a class="btn primary" href="watch.html?id=1">
+                ▶ Watch Now
+            </a>
+
+            <a class="btn secondary" href="anime.html?id=1">
+                More Info
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section" id="trending">
+
+    <div class="section-title">
+        <h2>🔥 Trending</h2>
+        <a href="#">View All →</a>
+    </div>
+
+    <div class="anime-grid" id="trendingGrid"></div>
+
+</section>
+
+
+<section class="section" id="latest">
+
+    <div class="section-title">
+        <h2>▶ Latest Episodes</h2>
+        <a href="#">View All →</a>
+    </div>
+
+    <div class="anime-grid" id="latestGrid"></div>
+
+</section>
+
+
+<section class="section">
+
+    <div class="section-title">
+        <h2>⭐ Popular</h2>
+    </div>
+
+    <div class="anime-grid" id="popularGrid"></div>
+
+</section>
+
+
+<section class="section">
+
+    <div class="section-title">
+        <h2>🎭 Browse Genres</h2>
+    </div>
+
+    <div class="genres">
+
+        <a href="index.html?genre=Action">Action</a>
+        <a href="index.html?genre=Adventure">Adventure</a>
+        <a href="index.html?genre=Comedy">Comedy</a>
+        <a href="index.html?genre=Drama">Drama</a>
+        <a href="index.html?genre=Fantasy">Fantasy</a>
+        <a href="index.html?genre=Romance">Romance</a>
+        <a href="index.html?genre=Sports">Sports</a>
+        <a href="index.html?genre=Sci-Fi">Sci-Fi</a>
+
+    </div>
+
+</section>
+
+</main>
+
+<footer>
+
+    <div class="logo">Ani<span>Verse</span></div>
+
+    <p>Your anime universe.</p>
+
+    <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="watchlist.html">Watchlist</a>
+        <a href="login.html">Login</a>
+        <a href="admin.html">Admin</a>
+    </div>
+
+    <small>© 2026 AniVerse</small>
+
+</footer>
+
+<script src="js/app.js"></script>
+
+</body>
+</html>
