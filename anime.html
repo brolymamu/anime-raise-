@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Anime Details - AniVerse</title>
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header class="header">
+
+    <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+
+    <a class="logo" href="index.html">
+        Ani<span>Verse</span>
+    </a>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="watchlist.html">Watchlist</a>
+    </nav>
+
+    <div class="header-search">
+
+        <input
+            id="searchInput"
+            placeholder="Search anime..."
+            onkeydown="searchAnime(event)"
+        >
+
+        <button onclick="searchAnime()">🔍</button>
+
+    </div>
+
+</header>
+
+
+<aside class="sidebar" id="sidebar">
+
+    <a href="index.html">🏠 Home</a>
+    <a href="watchlist.html">❤️ Watchlist</a>
+    <a href="admin.html">🔐 Admin</a>
+
+</aside>
+
+
+<main>
+
+<section class="anime-detail" id="animeDetail"></section>
+
+</main>
+
+<script src="js/app.js"></script>
+
+<script>
+loadAnimeDetails();
+</script>
+
+</body>
+</html>
+
